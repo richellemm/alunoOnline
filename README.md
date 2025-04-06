@@ -2,7 +2,7 @@
 
  <div align=center>
 
-# Olá, sejam bem-vindos!:wave:
+# Olá, sejam bem-vindos! :wave:
 
 <hr>
 
@@ -31,12 +31,16 @@
 a. Print Insomnia (Post criar Aluno - 201 Created)
 
 <div align="center">
+
 ![](api/src/assets/printInsomnia.PNG)
+
 </div>
 
 b. Print DBeaver (Criação Aluno - banco de dados)
 <div align="center">
+
 ![](api/src/assets/printInsomnia.PNG)
+
 </div>
 
 <hr>
