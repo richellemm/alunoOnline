@@ -39,7 +39,7 @@ a. Print Insomnia (Post criar Aluno - 201 Created)
 b. Print DBeaver (Criação Aluno - banco de dados)
 <div align="center">
 
-![](api/src/assets/printInsomnia.PNG)
+![](api/src/assets/printDBeaver.PNG)
 
 </div>
 
