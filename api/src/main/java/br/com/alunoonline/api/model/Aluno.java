@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@Data // gets e setters
 @Table(name = "aluno")
 @Entity
 public class Aluno {
