@@ -18,7 +18,11 @@
 - [Recursos](#-recursos)
 - [Atividades](#-atividades)
   - [Atividade 1](#atividade-1)
+    - Criar Aluno
   - [Atividade 2](#atividade-2)
+    - Listar Todos Alunos
+    - Buscar Aluno pelo ID
+    - Deletar Aluno por ID
 
 
 ## 📚 Sobre
@@ -36,9 +40,9 @@
 
 #### Atividade 1
 
-###### Criação de Aluno
+###### Criar Aluno
 
-a. Print Insomnia (POST criar Aluno - 201 Created)
+a. Print Insomnia (POST Criar Aluno - 201 Created)
 
 <div align="center">
 
