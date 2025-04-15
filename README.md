@@ -14,9 +14,9 @@
 
 ## 📖 Sumário
 
-- [Sobre](#sobre-books)
-- [Recursos](#recursos)
-- [Atividades](#atividades)
+- [Sobre](#-sobre)
+- [Recursos](#-recursos)
+- [Atividades](#-atividades)
   - [Atividade 1](#atividade-1)
   - [Atividade 2](#atividade-2)
 
@@ -52,6 +52,8 @@ b. Print DBeaver (Criação Aluno - banco de dados)
 ![](api/src/assets/criarAluno_DBeaver.PNG)
 
 </div>
+
+[⬆ Voltar ao sumário](#-sumário)
 
 <hr>
 
@@ -112,6 +114,7 @@ b. Print DBeaver (Aluno código 3 deletado - banco de dados)
 
 </div>
 
+[⬆ Voltar ao sumário](#-sumário)
+
 <hr>
 
-[⬆ Voltar ao sumário](#sumário)
