@@ -23,7 +23,7 @@
     - Listar Todos Alunos
     - Buscar Aluno pelo ID
     - Deletar Aluno por ID
-    [Atividade 3](#atividade-3)
+    - [Atividade 3](#atividade-3)
     - CRUD Aluno
     - CRUD Professor
     - CRUD Disciplina
