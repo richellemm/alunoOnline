@@ -27,6 +27,9 @@
     - CRUD Aluno
     - CRUD Professor
     - CRUD Disciplina
+  - [Atividade 4](#atividade-4)
+    - Trancar Matrícula
+    - Swagger
 
 
 ## 📚 Sobre
@@ -134,7 +137,7 @@ a. Print Insomnia (PUT Atualizar Aluno por ID - 204 NO CONTENT)
 
 <div align="center">
 
-![](api/src/assets/atualizarAlunoPorId_insonmia.PNG)
+![](api/src/assets/atualizarAlunoPorId_insomnia.PNG)
 
 </div>
 
@@ -254,7 +257,7 @@ a. Print Insomnia (GET Listar Todas Disciplinas - 200 OK)
 
 <div align="center">
 
-![](api/src/assets/listarTodasDisciplinas_insonmia.PNG)
+![](api/src/assets/listarTodasDisciplinas_insomnia.PNG)
 
 </div>
 
@@ -315,7 +318,7 @@ a. Print Insomnia (DEL Deletar Disciplina pelo ID - 204 NO CONTENT)
 
 <div align="center">
 
-![](api/src/assets/deletarDisciplinaPorId_insonmia.PNG)
+![](api/src/assets/deletarDisciplinaPorId_insomnia.PNG)
 
 </div>
 
@@ -327,5 +330,50 @@ b. Print DBeaver (Disciplina ID 1 - banco de dados)
 </div>
 
 [⬆ Voltar ao sumário](#-sumário)
+
+<hr>
+
+#### Atividade 4
+
+###### Trancar Matrícula
+
+a. Print Insomnia (PATCH Trancar Matrícula - 204 No Content)
+
+<div align="center">
+
+![](api/src/assets/trancarMatricula_insomnia.PNG)
+
+</div>
+
+b. Print Insomnia (PATCH Trancar Matrícula - 400 Bad Request)
+<div align="center">
+
+![](api/src/assets/trancarMatricula400_insomnia.PNG)
+
+</div>
+
+c. Print DBeaver (Trancar Matrícula - banco de dados)
+<div align="center">
+
+![](api/src/assets/trancarMatricula_DBeaver.PNG)
+
+</div>
+
+<hr>
+
+###### Swagger
+
+a. Print Swagger
+<div align="center">
+
+![](api/src/assets/Swagger_documentacao.PNG)
+
+</div>
+
+
+
+[⬆ Voltar ao sumário](#-sumário)
+
+
 
 <hr>
