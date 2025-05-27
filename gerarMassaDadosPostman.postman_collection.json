@@ -1,0 +1,352 @@
+{
+	"info": {
+		"_postman_id": "fd301faf-c8e1-49a5-90a3-777bf35fcdf9",
+		"name": "Aluno Online Em Sala",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39690701"
+	},
+	"item": [
+		{
+			"name": "GerarMassaDadosPostman",
+			"item": [
+				{
+					"name": "criarAluno",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// Gera nome aleatório\r",
+									"pm.variables.set(\"nome\", `Usuário ${Math.floor(Math.random() * 1000)}`);\r",
+									"\r",
+									"// Gera CPF simples (sem validação real) só pra exemplo\r",
+									"function gerarCPF() {\r",
+									"  let n = [];\r",
+									"  for (let i = 0; i < 9; i++) n.push(Math.floor(Math.random() * 10));\r",
+									"  let soma = n.reduce((acc, v, i) => acc + v * (10 - i), 0);\r",
+									"  let d1 = soma % 11 < 2 ? 0 : 11 - (soma % 11);\r",
+									"  n.push(d1);\r",
+									"  soma = n.reduce((acc, v, i) => acc + v * (11 - i), 0);\r",
+									"  let d2 = soma % 11 < 2 ? 0 : 11 - (soma % 11);\r",
+									"  n.push(d2);\r",
+									"  return `${n[0]}${n[1]}${n[2]}.${n[3]}${n[4]}${n[5]}.${n[6]}${n[7]}${n[8]}-${n[9]}${n[10]}`;\r",
+									"}\r",
+									"pm.variables.set(\"cpf\", gerarCPF());\r",
+									"\r",
+									"// Gera email aleatório simples\r",
+									"pm.variables.set(\"email\", `usuario${Math.floor(Math.random() * 1000)}@exemplo.com`);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Quantos usuários criar\r",
+									"const total = 10;\r",
+									"\r",
+									"// Pega o contador do ambiente (ou cria, se não existir)\r",
+									"let contador = parseInt(pm.environment.get(\"contador\") || \"1\");\r",
+									"\r",
+									"// Se ainda não criou todos, aumenta contador e repete a requisição\r",
+									"if (contador < total) {\r",
+									"    pm.environment.set(\"contador\", contador + 1);\r",
+									"    postman.setNextRequest(pm.info.requestName);\r",
+									"} else {\r",
+									"    // Quando terminar, limpa a variável de controle\r",
+									"    pm.environment.unset(\"contador\");\r",
+									"    console.log(\"Todos os usuários criados!\");\r",
+									"}\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"{{nome}}\",\r\n  \"cpf\": \"{{cpf}}\",\r\n  \"email\": \"{{email}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/alunos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"alunos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "criarProfessor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// Gera nome aleatório para professor\r",
+									"pm.variables.set(\"nome\", `Professor ${Math.floor(Math.random() * 1000)}`);\r",
+									"\r",
+									"// Gera CPF simples (formato xxx.xxx.xxx-xx)\r",
+									"function gerarCPF() {\r",
+									"  let n = [];\r",
+									"  for (let i = 0; i < 9; i++) n.push(Math.floor(Math.random() * 10));\r",
+									"  let soma = n.reduce((acc, v, i) => acc + v * (10 - i), 0);\r",
+									"  let d1 = soma % 11 < 2 ? 0 : 11 - (soma % 11);\r",
+									"  n.push(d1);\r",
+									"  soma = n.reduce((acc, v, i) => acc + v * (11 - i), 0);\r",
+									"  let d2 = soma % 11 < 2 ? 0 : 11 - (soma % 11);\r",
+									"  n.push(d2);\r",
+									"  return `${n[0]}${n[1]}${n[2]}.${n[3]}${n[4]}${n[5]}.${n[6]}${n[7]}${n[8]}-${n[9]}${n[10]}`;\r",
+									"}\r",
+									"pm.variables.set(\"cpf\", gerarCPF());\r",
+									"\r",
+									"// Gera email aleatório simples\r",
+									"pm.variables.set(\"email\", `professor${Math.floor(Math.random() * 1000)}@exemplo.com`);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"{{nome}}\",\r\n  \"cpf\": \"{{cpf}}\",\r\n  \"email\": \"{{email}}\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/professores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"professores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "criarDisciplina",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const professorIds = [1, 3, 4, 5, 6, 10, 11, 12, 13, 14];\r",
+									"const cargasHorarias = [60, 45, 20];\r",
+									"\r",
+									"function randomItem(arr) {\r",
+									"  return arr[Math.floor(Math.random() * arr.length)];\r",
+									"}\r",
+									"\r",
+									"const palavrasTech = [\r",
+									"  \"Projeto\", \"Extensionista\", \"Inteligência\", \"Artificial\", \"Machine\", \"Learning\",\r",
+									"  \"Blockchain\", \"Computação\", \"Distribuída\", \"Segurança\", \"Dados\", \"Cloud\",\r",
+									"  \"Internet\", \"Coisas\", \"Automação\", \"Redes\", \"Banco\", \"Dados\", \"Desenvolvimento\",\r",
+									"  \"Mobile\", \"Web\", \"Sistemas\", \"Software\", \"Aplicações\", \"Frontend\", \"Backend\",\r",
+									"  \"DevOps\", \"Programação\", \"Algoritmos\", \"Análise\", \"Testes\"\r",
+									"];\r",
+									"\r",
+									"function gerarNome() {\r",
+									"  const qtdePalavras = Math.floor(Math.random() * 2) + 2; // 2 ou 3 palavras\r",
+									"  let nome = [];\r",
+									"  for (let i = 0; i < qtdePalavras; i++) {\r",
+									"    nome.push(randomItem(palavrasTech));\r",
+									"  }\r",
+									"  return nome.join(\" \");\r",
+									"}\r",
+									"\r",
+									"pm.variables.set(\"nomeDisciplina\", gerarNome());\r",
+									"pm.variables.set(\"cargaHoraria\", randomItem(cargasHorarias));\r",
+									"pm.variables.set(\"professorId\", randomItem(professorIds));\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"{{nomeDisciplina}}\",\r\n  \"cargaHoraria\": {{cargaHoraria}},\r\n  \"professor\": {\r\n    \"id\": {{professorId}}\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/disciplinas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"disciplinas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "criarMatriculaAluno",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// Lista de IDs possíveis para aluno (1 a 55, exceto 3)\r",
+									"const alunoIds = [];\r",
+									"for (let i = 1; i <= 55; i++) {\r",
+									"  if (i !== 3) alunoIds.push(i);\r",
+									"}\r",
+									"\r",
+									"// Lista fixa dos IDs de disciplina\r",
+									"const disciplinaIds = [3,2,4,5,7,8,9,10,11,13,14,15,20,21,22,23,24,25,26,27,28,29];\r",
+									"\r",
+									"// Função para pegar um item aleatório\r",
+									"function randomItem(arr) {\r",
+									"  return arr[Math.floor(Math.random() * arr.length)];\r",
+									"}\r",
+									"\r",
+									"// Sorteia e seta as variáveis para o body\r",
+									"pm.variables.set(\"alunoId\", randomItem(alunoIds));\r",
+									"pm.variables.set(\"disciplinaId\", randomItem(disciplinaIds));\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"aluno\": {\r\n    \"id\": {{alunoId}}\r\n  },\r\n  \"disciplina\": {\r\n    \"id\": {{disciplinaId}}\r\n  }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/matriculas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"matriculas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "atualizarNotas",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"function gerarNotaAleatoria() {\r",
+									"  return Number((Math.random() * 5 + 5).toFixed(1)); \r",
+									"  // Math.random() * 5 -> gera um número entre 0 e 5\r",
+									"  // +5 -> soma 5 para que o número vá de 5 a 10\r",
+									"}\r",
+									"\r",
+									"pm.variables.set(\"nota1\", gerarNotaAleatoria());\r",
+									"pm.variables.set(\"nota2\", gerarNotaAleatoria());\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nota1\": {{nota1}},\r\n  \"nota2\": {{nota2}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/matriculas/atualizar-notas/50",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"matriculas",
+								"atualizar-notas",
+								"50"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
