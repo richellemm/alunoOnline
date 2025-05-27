@@ -17,7 +17,6 @@
 - [Sobre](#-sobre)
 - [Detalhes Técnicos](#-detalhes-técnicos)
   - [Tecnologias e Frameworks](#-tecnologias-e-frameworks)
-  - [Estrutura do Projeto](#-estrutura-do-projeto)
   - [Configuração do Ambiente](#-configuração-do-ambiente)
   - [Fluxos do Sistema](#-fluxos-do-sistema)
 - [Atividades](#-atividades)
@@ -50,17 +49,6 @@
 - **Banco de dados PostgreSQL** (versão 15)
 - **Insomnia** para testes das APIs
 - **DBeaver** para visualização e manipulação do banco de dados
-
-### 🗂️ Estrutura do Projeto
-api/
-├── src/
-│ ├── main/
-│ │ ├── java/
-│ │ │ └── com/example/aluno/ (código fonte)
-│ │ ├── resources/
-│ │ │ └── application.properties (configurações)
-│ ├── test/
-│ └── (testes unitários e de integração)
 
 ### 🛠️ Configuração do Ambiente
 1. Instale o **Java 17** e o **Maven**.
