@@ -15,7 +15,11 @@
 ## 📖 Sumário
 
 - [Sobre](#-sobre)
-- [Recursos](#-recursos)
+- [Detalhes Técnicos](#-detalhes-técnicos)
+  - [Tecnologias e Frameworks](#-tecnologias-e-frameworks)
+  - [Estrutura do Projeto](#-estrutura-do-projeto)
+  - [Configuração do Ambiente](#-configuração-do-ambiente)
+  - [Fluxos do Sistema](#-fluxos-do-sistema)
 - [Atividades](#-atividades)
   - [Atividade 1](#atividade-1)
     - Criar Aluno
@@ -35,13 +39,39 @@
 ## 📚 Sobre
 - Sou **Richelle Monteiro**, estudante do 3º período B noite de Sistemas para Internet no Centro Universitário-UNIESP;
 - Esse repositório é destinado à disciplina de Tecnologia para Back-end I, prof Kelson Almeida
-- O projeto é um sistema de cadastro Alunos, Professores e Disciplinas [em desenvolvimento]
+- O projeto é um sistema de cadastro Alunos, Professores e Disciplinas
 
-## 🛠️ Recursos
+## 📈 Detalhes Técnicos
 
- - Java;
- - Spring Boot
- - IntelliJ IDEA
+### 📚 Tecnologias e Frameworks
+- **Java** (versão 17)
+- **Spring Boot** (versão 3.x)
+- **Maven** para gerenciamento de dependências
+- **Banco de dados PostgreSQL** (versão 15)
+- **Insomnia** para testes das APIs
+- **DBeaver** para visualização e manipulação do banco de dados
+
+### 🗂️ Estrutura do Projeto
+api/
+├── src/
+│ ├── main/
+│ │ ├── java/
+│ │ │ └── com/example/aluno/ (código fonte)
+│ │ ├── resources/
+│ │ │ └── application.properties (configurações)
+│ ├── test/
+│ └── (testes unitários e de integração)
+
+### 🛠️ Configuração do Ambiente
+1. Instale o **Java 17** e o **Maven**.
+2. Configure o banco de dados PostgreSQL e ajuste as credenciais no `application.properties`.
+3. Execute `mvn spring-boot:run` para iniciar o projeto.
+
+### 🔄 Fluxos do Sistema
+- **Aluno**: CRUD completo + Trancamento de matrícula.
+- **Professor**: CRUD completo.
+- **Disciplina**: CRUD completo.
+- **Swagger** disponível para visualização da API.
 
 ## 🎯 Atividades
 
